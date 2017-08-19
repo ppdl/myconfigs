@@ -6,12 +6,16 @@
 
 Last Update: 19 Aug 2017
 
-###Files###
-* .zshrc setting (shell theme)
+###CAUTION###
+Before apply this files, it'd be better to backup your original configurations
+It can override your config files such as zshrc, vimrc, etc...
+
+###Included Files###
+1) .zshrc setting (shell theme)
 	- you should change host name in line5 path
 
-* .vimrc setting (vim configs)
-* syntastic.vim  (if use Syntastic, put this in ~/.vim/bundle/syntastic/plugin/)
+2) .vimrc setting (vim configs)
+3) syntastic.vim  (if use Syntastic, put this in ~/.vim/bundle/syntastic/plugin/)
 
 
 ###Zsh Environment Setting###
@@ -26,7 +30,7 @@ Last Update: 19 Aug 2017
 	a. git clone https://github.com/powerline/fonts.git --depth=1
 	b. ./install.sh
 	c. rm -rf fonts
-	d. and, set the font
+	d. and, apply the font
 
 ###Installed VIM Plugins###
 1) Vundle		: Plugin installer
@@ -40,6 +44,9 @@ Last Update: 19 Aug 2017
 ###VIM command###
 * leader key: ,
 
+# Paste 
+1) F2			: Paste On/Off
+
 # Plugins	   
 1) PluginList 	: show plugin list
 2) PluginInstal : install all plugins in the list
@@ -50,9 +57,11 @@ Last Update: 19 Aug 2017
 3) Ctrl + w,e 	: Syntastic				(Syntax checker)
 
 # switch buffers
-1) leader + q 	: move to left buffer
-2) leader + w 	: move to right buffer
-3) Ctrl + w,w 	: toggle splitted window
+1) leader + a 	: move to left buffer
+2) leader + s 	: move to right buffer
+3) leader + [N]	: move to [N]th buffer. [N] can be 1~9
+4) leader + w	: close the current tab
+5) Ctrl + w,w 	: toggle splitted window
 
 
 

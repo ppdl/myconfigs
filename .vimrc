@@ -40,8 +40,12 @@ set title
 nnoremap <F2> :set invpaste paste?<CR>
 set pastetoggle=<F2>
 let mapleader = ","
-nnoremap <leader>q :bp<CR>
-nnoremap <leader>w :bn<CR>
+nnoremap <leader>a :bp<CR>
+nnoremap <leader>s :bn<CR>
+nnoremap <leader>w :bw<CR>
+for i in range(1,10)
+	execute "nnoremap \<leader>".i." :b".i."<CR>"
+endfor
 
 " resize windows
 nnoremap <silent> <Leader>= :exe "resize +3"<CR>
