@@ -1,4 +1,4 @@
-:colorscheme default
+colorscheme gruvbox
 :hi Search guibg=red
 
 set t_Co=256
@@ -88,6 +88,11 @@ Plugin 'octol/vim-cpp-enhanced-highlight'
 " vim NERD tree
 Plugin 'scrooloose/nerdtree'
 
+" vim TagBar
+Plugin 'majutsushi/tagbar'
+Plugin 'xolox/vim-easytag'
+Plugin 'xolox/vim-misc'
+
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -134,9 +139,17 @@ let g:syntastic_cpp_compiler = 'g++'
 let g:syntastic_cpp_compiler_options = "-std=c++11 -Wall -Wextra -Wpedantic"
 let g:syntastic_c_compiler_options = "-std=c11 -Wall -Wextra -Wpedantic"
 
+" Gruvbox
+set background=dark
+let g:gruvbox_contrast_dark = "high"
+let g:gruvbox_color_column="aqua"
+
 " NERDtree
 autocmd BufEnter * lcd %:p:h
 autocmd VimEnter * if !argc() | NERDTree | endif
 nmap <leader>ne :NERDTreeToggle<cr>
 let NERDTReeShowLineNumbers=1
 let g:NERDTreeeWinPos = "right"
+
+" TagBar
+nmap <F8> :TagbarToggle<CR>
