@@ -2,6 +2,7 @@
 
 !.gitignore
 !.vimrc
+!.zshrc
 !README.md
 !syntastic.vim
 
