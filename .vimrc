@@ -1,0 +1,142 @@
+:colorscheme default
+:hi Search guibg=red
+
+set t_Co=256
+
+" Syntax Highlighting
+if has("syntax")
+	syntax on
+endif
+
+set fileencodings=utf8,euc-kr
+scripte utf-8
+set nocp
+set all&
+set autoindent
+set cindent
+set smartindent
+set hi=100
+set bs=indent,eol,start
+set fenc=utf-8
+set fencs=utf-8,cp949,euc-jp,shift-jis,big5,ucs-2le,latin1
+set ru
+set sc
+set nu
+set nuw=5
+set ts=4
+set sw=4
+set noet
+set sts=0
+set nowrap
+set sm
+set showmatch
+set mouse=an
+set sidescroll=1
+set title
+
+
+" Key Settings
+nnoremap <F2> :set invpaste paste?<CR>
+set pastetoggle=<F2>
+let mapleader = ","
+nnoremap <leader>q :bp<CR>
+nnoremap <leader>w :bn<CR>
+
+" resize windows
+nnoremap <silent> <Leader>= :exe "resize +3"<CR>
+nnoremap <silent> <Leader>- :exe "resize -3"<CR>
+nnoremap <silent> <Leader>] :exe "vertical resize +8"<CR>
+nnoremap <silent> <Leader>[ :exe "vertical resize -8"<CR>
+ 
+nnoremap <silent> <Leader>+ :exe "resize " . (winheight(0) * 3/2)<CR>
+nnoremap <silent> <Leader>_ :exe "resize " . (winheight(0) * 2/3)<CR>
+nnoremap <silent> <Leader>} :exe "vertical resize " . (winheight(0) * 3/2)<CR>
+nnoremap <silent> <Leader>{ :exe "vertical resize " . (winheight(0) * 2/3)<CR>
+
+
+" Vundle
+set nocompatible              " be iMproved, required
+filetype off                  " required
+ 
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+ 
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+ 
+" Keep Plugin commands between vundle#begin/end.
+ 
+" vim-airline
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+
+" vim-delimitMate
+Plugin 'Raimondi/delimitMate'
+
+" vim-Syntastic
+Plugin 'scrooloose/syntastic'
+
+" vim-Gruvbox
+Plugin 'morhetz/gruvbox'
+
+" vim-C++ syntax highlighter
+Plugin 'octol/vim-cpp-enhanced-highlight'
+
+" vim NERD tree
+Plugin 'scrooloose/nerdtree'
+
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo at http://vim-scripts.org/vim/scripts.html; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+
+
+"for vim-airline
+"let g:airline#extensions#tabline#enabled = 0 "turn off buffer list
+let g:airline#extensions#tabline#enabled = 1 " turn on buffer list
+let g:airline_powerline_fonts = 1
+let g:airline_theme='wombat'
+"let g:airline_solarized_bg='dark'
+set laststatus=2 " turn on bottom bar"
+
+"for delimitMate
+let delimitMate_expand_cr=1
+let delimitMate_disabled_matchpairs = '<:>'
+
+" Syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+ 
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': [] }
+nnoremap <C-w>e :SyntasticCheck<CR> :SyntasticToggleMode<CR>
+
+ 
+let g:syntastic_cpp_compiler = 'g++'
+let g:syntastic_cpp_compiler_options = "-std=c++11 -Wall -Wextra -Wpedantic"
+let g:syntastic_c_compiler_options = "-std=c11 -Wall -Wextra -Wpedantic"
+
+" NERDtree
+autocmd BufEnter * lcd %:p:h
+autocmd VimEnter * if !argc() | NERDTree | endif
+nmap <leader>ne :NERDTreeToggle<cr>
+let NERDTReeShowLineNumbers=1
+let g:NERDTreeeWinPos = "right"
