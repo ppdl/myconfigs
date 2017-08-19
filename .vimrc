@@ -8,6 +8,7 @@ if has("syntax")
 	syntax on
 endif
 
+" General setting
 set fileencodings=utf8,euc-kr
 scripte utf-8
 set nocp
@@ -89,9 +90,8 @@ Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'scrooloose/nerdtree'
 
 " vim TagBar
+" need sudo apt-get install exuberant-ctags
 Plugin 'majutsushi/tagbar'
-Plugin 'xolox/vim-easytag'
-Plugin 'xolox/vim-misc'
 
 
 " All of your Plugins must be added before the following line
