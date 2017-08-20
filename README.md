@@ -1,6 +1,6 @@
 
 #************************************#
-#YoungJae's ubuntu VIM configurations#
+#YoungJae's Ubuntu VIM configurations#
 # Made it during Australia vacation! #
 #************************************#
 
@@ -33,18 +33,45 @@ It can override your config files such as zshrc, vimrc, etc...
 	d. and, apply the font
 
 ###Installed VIM Plugins###
-1) Vundle		: Plugin installer
-2) Airline		: Status bar
-3) DelimitMate	: Parenthesis autocloser
-4) Syntastic	: Syntax checker
-5) Gruvbox		: Vim theme
-6) NERDTree		: File explorer
-7) Tagbar		: Project navigator
+1) Vundle		 : Plugin installer
+2) Airline		 : Status bar
+3) DelimitMate	 : Parenthesis autocloser
+4) Syntastic	 : Syntax checker
+5) Gruvbox		 : Vim theme
+6) NERDTree		 : File explorer
+7) Tagbar		 : Project navigator
+8) YouCompleteMe : Autocompleter
+ ***Prerequsites For YCM***
+	-(!Notice) Because this Plugin has quite big repo, there can be a problem during installation.
+	 In this case, use under 'git clone' command
+	  *git clone https://github.com/Valloric/YouCompleteMe.git ~/.vim/bundle/YouCompleteMe
+
+	-(!Optional) Befor using it, it would better install libclang to maximize utility of this Plugin
+	  a)Add the archive signature
+	    *wget -O - http://apt.llvm.org/llvm-snapshot.gpg.key | sudo apt-key add -
+	  b)Add the PPA
+	    *sudo apt-add-repository "deb http://apt.llvm.org/xenial/ llvm-toolchain-xenial-3.9 main"
+		*sudo apt-get update
+	  c)Allow the Repository to reload and then run the following command
+	    *sudo apt-get install clang-3.9 lldb-3.9
+	
+	-After installation, follow this
+	  *cd ~/.vim/bundle/YouCompleteMe
+	  *git submodule update --init --recursive
+	  *./install.sh --clang-completer
+	
+	-You should need ycm_extra_conf.py. The link is below. Copy&paste it to ~/.vim/.ycm_extra_conf.py
+	  *https://github.com/Valloric/ycmd/blob/master/cpp/ycm/.ycm_extra_conf.py
+
+	-Whole procedures are...
+	 http://www.alexeyshmalko.com/2014/youcompleteme-ultimate-autocomplete-plugin-for-vim/
+
+9) Ctrlp		 : file searcher
 
 ###VIM command###
 * leader key: ,
 
-# Paste 
+# Paste mode 
 1) F2			: Paste On/Off
 
 # Plugins	   
@@ -56,14 +83,10 @@ It can override your config files such as zshrc, vimrc, etc...
 2) leader + n,e : NERDTree				(file explorer)
 3) Ctrl + w,e 	: Syntastic				(Syntax checker)
 
-# switch buffers
+# buffer command
 1) leader + a 	: move to left buffer
 2) leader + s 	: move to right buffer
 3) leader + [N]	: move to [N]th buffer. [N] can be 1~9
 4) leader + w	: close the current tab
 5) Ctrl + w,w 	: toggle splitted window
-
-
-
-
-
+6) Ctrl + p		: search files

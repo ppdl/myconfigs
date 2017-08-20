@@ -34,7 +34,7 @@ set showmatch
 set mouse=an
 set sidescroll=1
 set title
-
+set hidden
 
 " Key Settings
 nnoremap <F2> :set invpaste paste?<CR>
@@ -42,7 +42,7 @@ set pastetoggle=<F2>
 let mapleader = ","
 nnoremap <leader>a :bp<CR>
 nnoremap <leader>s :bn<CR>
-nnoremap <leader>w :bw<CR>
+nnoremap <leader>w :bd<CR>
 for i in range(1,10)
 	execute "nnoremap \<leader>".i." :b".i."<CR>"
 endfor
@@ -97,6 +97,10 @@ Plugin 'scrooloose/nerdtree'
 " need sudo apt-get install exuberant-ctags
 Plugin 'majutsushi/tagbar'
 
+" vim YouCompleteMe
+Plugin 'Valloric/YouCompleteMe'
+
+Plugin 'kien/ctrlp.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -157,3 +161,18 @@ let g:NERDTreeeWinPos = "right"
 
 " TagBar
 nmap <F8> :TagbarToggle<CR>
+
+" YouCompleteMe
+let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
+let g:ycm_confirm_extra_conf = 0
+"To avoid conflict snippets
+let g:ycm_key_list_select_completion = ['<C-j>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-k>', '<Up>']
+let g:ycm_autoclose_preview_window_after_completion = 1
+
+
+nnoremap <leader>g :YcmCompleter GoTo<CR>
+nnoremap <leader>gg :YcmCompleter GoToImprecise<CR>
+nnoremap <leader>d :YcmCompleter GoToDeclaration<CR>
+nnoremap <leader>t :YcmCompleter GetType<CR>
+nnoremap <leader>p :YcmCompleter GetParent<CR>
