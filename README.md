@@ -4,7 +4,7 @@
 # Made it during Australia vacation! #
 #************************************#
 
-Last Update: 19 Aug 2017
+Last Update: 20 Aug 2017
 
 ###CAUTION###
 Before apply this files, it'd be better to backup your original configurations
