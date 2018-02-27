@@ -36,14 +36,16 @@ rm -rf fonts
 cp .zshrc ../.zshrc 
 
 # Monitor Resolution setting
-resolution_type_dxd=`xdpyinfo | grep -oP 'dimensions:\s+\K\S+'`
-com1=$?
-resolution_type_d_d=`echo $resolution_type_dxd | grep -oP '\d+'`
-com2=$?
-modeline=`cvt $resolution_type_d_d | grep -oP 'Modeline \K.+'`
-com3=$?
-modename=`cvt $resolution_type_d_d | cut -s -d'"' -f 2`
-com4=$?
+# Comportable setting routine, but don't know what the highest resolution is supported.
+# So I can't implement it yet using shell script.
+#resolution_type_dxd=`xdpyinfo | grep -oP 'dimensions:\s+\K\S+'`  # this gives you the current resolution, not the highest resolution.
+#com1=$?
+#resolution_type_d_d=`echo $resolution_type_dxd | grep -oP '\d+'`
+#com2=$?
+#modeline=`cvt $resolution_type_d_d | grep -oP 'Modeline \K.+'`
+#com3=$?
+#modename=`cvt $resolution_type_d_d | cut -s -d'"' -f 2`
+#com4=$?
 
 #if [ "$com1" = "0" -a "$com2" = "0" -a "$com3" = "0" ]; then
 #	cat ~/.profile | grep xrandr 2>&1 /dev/null
@@ -55,9 +57,13 @@ com4=$?
 #	fi
 #fi
 
-echo 'xrandr --newmode "1920x1080"  173.00  1920 2048 2248 2576  1080 1083 1088 1120 -hsync +vsync' >> ~/.profile
-echo 'xrandr --addmode Virtual1 1920x1080' >> ~/.profile
-echo 'xrandr --output Virtual1 --mode 1920x1080' >> ~/.profile
+cat ~/.profile | grep xrandr 2>&1 /dev/null
+if [ $? -ne 0 ]
+then
+	echo 'xrandr --newmode "1920x1080"  173.00  1920 2048 2248 2576  1080 1083 1088 1120 -hsync +vsync' >> ~/.profile
+	echo 'xrandr --addmode Virtual1 1920x1080' >> ~/.profile
+	echo 'xrandr --output Virtual1 --mode 1920x1080' >> ~/.profile
+fi
 
 echo '****************************************'
 echo '*                                      *'
