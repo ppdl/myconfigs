@@ -1,4 +1,4 @@
-colorscheme gruvbox
+"colorscheme gruvbox
 :hi Search guibg=red
 
 set t_Co=256
