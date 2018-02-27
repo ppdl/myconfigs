@@ -33,7 +33,8 @@ vim -c 'PluginInstall' -c 'qa!'
 mkdir ~/.vim/colors
 cp ~/.vim/bundle/gruvbox/colors/gruvbox.vim ~/.vim/colors/gruvbox.vim
 
-sed '1,1s/^.//' ~/.vimrc > ~/.vimrc
+# apply gruvbox theme
+sed '1,1s/^.//' .vimrc > ~/.vimrc
 
 
 git clone https://github.com/powerline/fonts.git --depth=1
