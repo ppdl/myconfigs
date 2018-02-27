@@ -41,15 +41,17 @@ resolution_type_d_d=`echo $resolution_type_dxd | grep -oP '\d+'`
 com2=$?
 modeline=`cvt $resolution_type_d_d | grep -oP 'Modeline \K.+'`
 com3=$?
+modename=`cvt $resolution_type_d_d | cut -s -d'"' -f 2`
+com4=$?
 
 
-if [ "$com1" = "0" -a "$com2" = "0" -a "$com3" = "0" ]; then
+if [ "$com1" = "0" -a "$com2" = "0" -a "$com3" = "0" -a "$com4" = "0"]; then
 	cat ~/.profile | grep xrandr 2>&1 /dev/null
 	if [ $? -ne 0 ]
 	then
 		echo 'xrandr --newmode '"$modeline"'
-		xrandr --addmode Virtual1 '"$resolution_type_dxd"'
-		xrandr --output Virtual1 --mode '"$resolution_type_dxd" >> ~/.profile
+		xrandr --addmode Virtual1 '"$modename"'
+		xrandr --output Virtual1 --mode '"$modename" >> ~/.profile
 	fi
 fi
 
