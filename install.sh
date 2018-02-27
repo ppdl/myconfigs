@@ -10,15 +10,16 @@ sudo apt-get install -y terminator
 sudo apt-get install -y zsh
 sudo apt-get install -y curl
 curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
-sudo chsh -s `which zsh`
 
-# Gruvbox theme
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-mkdir ~/.vim/colors
-cp ~/.vim/bundle/gruvbox/colors/gruvbox.vim ~/.vim/colors/gruvbox.vim
+# setting login shell
+sudo vim -c 'vi /etc/pam.d/chsh' -c '%s/required/sufficient/g' -c 'wq!'
+chsh -s `which zsh`
+sudo vim -c 'vi /etc/pam.d/chsh' -c '8,8s/sufficient/required/g' -c 'wq!'
 
-# Vim configurations
+
+# Vim & Zsh configurations
 cp .vimrc ../.vimrc
+cp .zshrc ../.zshrc 
 
 # Terminator config file. Font, Color, Seperator size
 mkdir ~/.config/terminator
@@ -27,13 +28,17 @@ cp terminator_config ~/.config/terminator/config
 # Install all vim plugins
 vim -c 'PluginInstall' -c 'qa!'
 
+# Gruvbox theme
+mkdir ~/.vim/colors
+cp ~/.vim/bundle/gruvbox/colors/gruvbox.vim ~/.vim/colors/gruvbox.vim
+
+sed '1,1s/^.//' ~/.vimrc > ~/.vimrc
+
 
 git clone https://github.com/powerline/fonts.git --depth=1
 ./fonts/install.sh
 rm -rf fonts
 
-# Zsh setting
-cp .zshrc ../.zshrc 
 
 # Monitor Resolution setting
 # Comportable setting routine, but don't know what the highest resolution is supported.
