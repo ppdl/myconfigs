@@ -43,8 +43,10 @@ rm -rf fonts
 
 
 # Monitor Resolution setting
-# Comportable setting routine, but don't know what the highest resolution is supported.
+# Below setting routine is device independent,
+# but don't know the command that gives the highest supported resolution.
 # So I can't implement it yet using shell script.
+
 #resolution_type_dxd=`xdpyinfo | grep -oP 'dimensions:\s+\K\S+'`  # this gives you the current resolution, not the highest resolution.
 #com1=$?
 #resolution_type_d_d=`echo $resolution_type_dxd | grep -oP '\d+'`
