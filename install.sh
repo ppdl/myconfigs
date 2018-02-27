@@ -42,15 +42,19 @@ com2=$?
 modeline=`cvt $resolution_type_d_d | grep -oP 'Modeline \K.+'`
 com3=$?
 
-if [ "$com1" = "0" -a "$com2" = "0" -a "$com3" = "0" ]; then
-	cat ~/.profile | grep xrandr 2>&1 /dev/null
-	if [ $? -ne 0 ]
-	then
-		echo 'xrandr --newmode '"$modeline"'
-		xrandr --addmode Virtual1 '"$resolution_type_dxd"'
-		xrandr --output Virtual1 --mode '"$resolution_type_dxd" >> ~/.profile
-	fi
-fi
+#if [ "$com1" = "0" -a "$com2" = "0" -a "$com3" = "0" ]; then
+#	cat ~/.profile | grep xrandr 2>&1 /dev/null
+#	if [ $? -ne 0 ]
+#	then
+#		echo 'xrandr --newmode '"$modeline"'
+#		xrandr --addmode Virtual1 '"$resolution_type_dxd"'
+#		xrandr --output Virtual1 --mode '"$resolution_type_dxd" >> ~/.profile
+#	fi
+#fi
+
+echo 'xrandr --newmode "1920x1080"  173.00  1920 2048 2248 2576  1080 1083 1088 1120 -hsync +vsync' >> ~/.profile
+echo 'xrandr --addmode Virtual1 1920x1080' >> ~/.profile
+echo 'xrandr --output Virtual1 --mode 1920x1080' >> ~/.profile
 
 echo '****************************************'
 echo '*                                      *'
