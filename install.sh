@@ -1,14 +1,14 @@
 #!/bin/bash
 
 # Install Vim, setting it as a default text editor
-sudo apt-get install vim
+sudo apt-get install -y vim
 sudo update-alternatives --set editor /usr/bin/vim.basic
 
-sudo apt-get install terminator
+sudo apt-get install -y terminator
 
 # Install zsh shell & oh-my-zsh
-sudo apt-get install zsh
-sudo apt-get install curl
+sudo apt-get install -y zsh
+sudo apt-get install -y curl
 curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
 chsh -s `which zsh`
 
