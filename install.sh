@@ -22,6 +22,7 @@ cp .vimrc ../.vimrc
 cp .zshrc ../.zshrc 
 
 # Terminator config file. Font, Color, Seperator size
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 mkdir ~/.config/terminator
 cp terminator_config ~/.config/terminator/config
 
