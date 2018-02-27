@@ -25,7 +25,7 @@ cp terminator_config ~/.config/terminator/config
 vim -c 'PluginInstall' -c 'qa!'
 
 mkdir ~/.vim/colors
-cp ~/.vim/bundle/gruvbox/colors/gruvbox.vim ~/.vim/colors/gurvbox.vim
+cp ~/.vim/bundle/gruvbox/colors/gruvbox.vim ~/.vim/colors/gruvbox.vim
 
 git clone https://github.com/powerline/fonts.git --depth=1
 ./fonts/install.sh
@@ -41,6 +41,8 @@ resolution_type_d_d=`echo $resolution_type_dxd | grep -oP '\d+'`
 com2=$?
 modeline=`cvt $resolution_type_d_d | grep -oP 'Modeline \K.+'`
 com3=$?
+modename=`cvt $resolution_type_d_d | cut -s -d'"' -f 2`
+com4=$?
 
 #if [ "$com1" = "0" -a "$com2" = "0" -a "$com3" = "0" ]; then
 #	cat ~/.profile | grep xrandr 2>&1 /dev/null
