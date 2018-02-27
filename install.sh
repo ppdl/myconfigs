@@ -32,7 +32,7 @@ rm -rf fonts
 cp terminator_config ~/.config/terminator/config
 
 
-# Monitor Resolution settings for 1920x1080
+# Monitor Resolution setting
 resolution_type_dxd=`xdpyinfo | grep -oP 'dimensions:\s+\K\S+'`
 com1=$?
 resolution_type_d_d=`echo $resolution_type_dxd | grep -oP '\d+'`
@@ -45,3 +45,10 @@ if [ "$com1" = "0" -a "$com2" = "0" -a "$com3" = "0" ]; then
 	xrandr --addmode Virtual1 '"$resolution_type_dxd"'
 	xrandr --output Virtual1 --mode '"$resolution_type_dxd" >> ~/.profile
 fi
+
+echo '****************************************'
+echo '*                                      *'
+echo '*      All Settings are completed      *'
+echo '* Please restart to apply the settings *'
+echo '*                                      *'
+echo '****************************************'
