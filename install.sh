@@ -12,7 +12,10 @@ sudo apt-get install -y curl
 curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
 sudo chsh -s `which zsh`
 
+# Gruvbox theme
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+mkdir ~/.vim/colors
+cp ~/.vim/bundle/gruvbox/colors/gruvbox.vim ~/.vim/colors/gruvbox.vim
 
 # Vim configurations
 cp .vimrc ../.vimrc
@@ -24,8 +27,6 @@ cp terminator_config ~/.config/terminator/config
 # Install all vim plugins
 vim -c 'PluginInstall' -c 'qa!'
 
-mkdir ~/.vim/colors
-cp ~/.vim/bundle/gruvbox/colors/gruvbox.vim ~/.vim/colors/gruvbox.vim
 
 git clone https://github.com/powerline/fonts.git --depth=1
 ./fonts/install.sh
