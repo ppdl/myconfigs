@@ -39,6 +39,7 @@ set hidden
 " Key Settings
 nnoremap <F2> :set invpaste paste?<CR>
 set pastetoggle=<F2>
+inoremap <F3> <c-o>:w<CR>
 let mapleader = ","
 nnoremap <leader>a :bp<CR>
 nnoremap <leader>s :bn<CR>
