@@ -66,13 +66,13 @@ rm -rf fonts
 #	fi
 #fi
 
-cat ~/.profile | grep xrandr 2>&1 /dev/null
-if [ $? -ne 0 ]
-then
-	echo 'xrandr --newmode "1920x1080"  173.00  1920 2048 2248 2576  1080 1083 1088 1120 -hsync +vsync' >> ~/.profile
-	echo 'xrandr --addmode Virtual1 1920x1080' >> ~/.profile
-	echo 'xrandr --output Virtual1 --mode 1920x1080' >> ~/.profile
-fi
+#cat ~/.profile | grep xrandr 2>&1 /dev/null
+#if [ $? -ne 0 ]
+#then
+#	echo 'xrandr --newmode "1920x1080"  173.00  1920 2048 2248 2576  1080 1083 1088 1120 -hsync +vsync' >> ~/.profile
+#	echo 'xrandr --addmode Virtual1 1920x1080' >> ~/.profile
+#	echo 'xrandr --output Virtual1 --mode 1920x1080' >> ~/.profile
+#fi
 
 echo '****************************************'
 echo '*                                      *'
