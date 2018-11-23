@@ -26,6 +26,9 @@ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 mkdir ~/.config/terminator
 cp terminator_config ~/.config/terminator/config
 
+# ctags
+sudo apt-get install -y ctags
+
 # Install all vim plugins
 vim -c 'PluginInstall' -c 'qa!'
 
