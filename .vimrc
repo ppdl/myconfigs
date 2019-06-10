@@ -40,7 +40,7 @@ set hidden
 nnoremap <F2> :set invpaste paste?<CR>
 set pastetoggle=<F2>
 execute "set <M-1>=\e1"
-inoremap <M-1> <c-o>:W<CR>
+inoremap <M-1> <c-o>:w<CR>
 nnoremap <M-1> :w<CR>
 execute "set <M-2>=\e2"
 inoremap <M-2> <c-o>:q<CR>
