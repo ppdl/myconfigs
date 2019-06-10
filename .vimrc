@@ -1,4 +1,4 @@
-"colorscheme gruvbox
+colorscheme gruvbox
 :hi Search guibg=red
 
 set t_Co=256
@@ -39,10 +39,16 @@ set hidden
 " Key Settings
 nnoremap <F2> :set invpaste paste?<CR>
 set pastetoggle=<F2>
-inoremap <F3> <c-o>:w<CR>
-nnoremap <F3> :w<CR>
-inoremap <F4> <c-o>:q<CR>
-nnoremap <F4> :q<CR>
+execute "set <M-1>=\e1"
+inoremap <M-1> <c-o>:W<CR>
+nnoremap <M-1> :w<CR>
+execute "set <M-2>=\e2"
+inoremap <M-2> <c-o>:q<CR>
+nnoremap <M-2> :q<CR>
+"inoremap <F3> <c-o>:w<CR>
+"nnoremap <F3> :w<CR>
+"inoremap <F4> <c-o>:q<CR>
+"nnoremap <F4> :q<CR>
 
 let mapleader = ","
 nnoremap <leader>a :bp<CR>
