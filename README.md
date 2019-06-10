@@ -1,15 +1,4 @@
 
-#************************************#
-#YoungJae's Ubuntu VIM configurations#
-# Made it during Australia vacation! #
-#************************************#
-
-Last Update: 20 Aug 2017
-
-###CAUTION###
-Before apply this files, it'd be better to backup your original configurations
-It can override your config files such as zshrc, vimrc, etc...
-
 ###Included Files###
 1) .zshrc setting (shell theme)
 	- you should change host name in line5 path
