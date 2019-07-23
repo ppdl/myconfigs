@@ -84,34 +84,93 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
  
 " Keep Plugin commands between vundle#begin/end.
- 
-" vim-airline
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-
-" vim-delimitMate
-Plugin 'Raimondi/delimitMate'
-
-" vim-Syntastic
-Plugin 'scrooloose/syntastic'
-
-" vim-Gruvbox
-Plugin 'morhetz/gruvbox'
 
 " vim-C++ syntax highlighter
 Plugin 'octol/vim-cpp-enhanced-highlight'
 
+Plugin 'kien/ctrlp.vim'
+
+" vim-airline
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+"let g:airline#extensions#tabline#enabled = 0 "turn off buffer list
+let g:airline#extensions#tabline#enabled = 1 " turn on buffer list
+let g:airline_powerline_fonts = 1
+let g:airline_theme='wombat'
+"let g:airline_solarized_bg='dark'
+set laststatus=2 " turn on bottom bar"
+
+" vim-delimitMate
+Plugin 'Raimondi/delimitMate'
+let delimitMate_expand_cr=1
+let delimitMate_disabled_matchpairs = '<:>'
+
+" vim-Syntastic
+Plugin 'scrooloose/syntastic'
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+ 
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': [] }
+nnoremap <C-w>e :SyntasticCheck<CR> :SyntasticToggleMode<CR>
+
+ 
+let g:syntastic_cpp_compiler = 'g++'
+let g:syntastic_cpp_compiler_options = "-std=c++11 -Wall -Wextra -Wpedantic"
+let g:syntastic_c_compiler_options = "-std=c11 -Wall -Wextra -Wpedantic"
+
+" vim-Gruvbox
+Plugin 'morhetz/gruvbox'
+set background=dark
+let g:gruvbox_contrast_dark = "high"
+let g:gruvbox_color_column="aqua"
+
 " vim NERD tree
 Plugin 'scrooloose/nerdtree'
+autocmd BufEnter * lcd %:p:h
+autocmd VimEnter * if !argc() | NERDTree | endif
+nmap <leader>ne :NERDTreeToggle<cr>
+let NERDTReeShowLineNumbers=1
+let g:NERDTreeeWinPos = "right"
 
 " vim TagBar
 " need sudo apt-get install exuberant-ctags
 Plugin 'majutsushi/tagbar'
+nmap <F8> :TagbarToggle<CR>
 
 " vim YouCompleteMe
 "Plugin 'Valloric/YouCompleteMe'
+" YouCompleteMe
+let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
+let g:ycm_confirm_extra_conf = 0
+"To avoid conflict snippets
+let g:ycm_key_list_select_completion = ['<C-j>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-k>', '<Up>']
+let g:ycm_autoclose_preview_window_after_completion = 1
 
-Plugin 'kien/ctrlp.vim'
+nnoremap <leader>g :YcmCompleter GoTo<CR>
+nnoremap <leader>gg :YcmCompleter GoToImprecise<CR>
+nnoremap <leader>d :YcmCompleter GoToDeclaration<CR>
+nnoremap <leader>t :YcmCompleter GetType<CR>
+nnoremap <leader>p :YcmCompleter GetParent<CR>
+
+" serach highlighting
+Plugin 'haya14busa/incsearch.vim'
+set hlsearch
+let g:incsearch#auto_nohlsearch = 1
+map / <Plug>(incsearch-forward)
+map ? <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
+map n <Plug>(incsearch-nohl-n)
+map N <Plug>(incsearch-nohl-N)
+map * <Plug>(incsearch-nohl-*)
+map # <Plug>(incsearch-nohl-#)
+map g* <Plug>(incsearch-nohl-g*)
+map g# <Plug>(incsearch-nohl-g#)
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -129,61 +188,4 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 
 
-"for vim-airline
-"let g:airline#extensions#tabline#enabled = 0 "turn off buffer list
-let g:airline#extensions#tabline#enabled = 1 " turn on buffer list
-let g:airline_powerline_fonts = 1
-let g:airline_theme='wombat'
-"let g:airline_solarized_bg='dark'
-set laststatus=2 " turn on bottom bar"
 
-"for delimitMate
-let delimitMate_expand_cr=1
-let delimitMate_disabled_matchpairs = '<:>'
-
-" Syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
- 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': [] }
-nnoremap <C-w>e :SyntasticCheck<CR> :SyntasticToggleMode<CR>
-
- 
-let g:syntastic_cpp_compiler = 'g++'
-let g:syntastic_cpp_compiler_options = "-std=c++11 -Wall -Wextra -Wpedantic"
-let g:syntastic_c_compiler_options = "-std=c11 -Wall -Wextra -Wpedantic"
-
-" Gruvbox
-set background=dark
-let g:gruvbox_contrast_dark = "high"
-let g:gruvbox_color_column="aqua"
-
-" NERDtree
-autocmd BufEnter * lcd %:p:h
-autocmd VimEnter * if !argc() | NERDTree | endif
-nmap <leader>ne :NERDTreeToggle<cr>
-let NERDTReeShowLineNumbers=1
-let g:NERDTreeeWinPos = "right"
-
-" TagBar
-nmap <F8> :TagbarToggle<CR>
-
-" YouCompleteMe
-let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
-let g:ycm_confirm_extra_conf = 0
-"To avoid conflict snippets
-let g:ycm_key_list_select_completion = ['<C-j>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-k>', '<Up>']
-let g:ycm_autoclose_preview_window_after_completion = 1
-
-
-nnoremap <leader>g :YcmCompleter GoTo<CR>
-nnoremap <leader>gg :YcmCompleter GoToImprecise<CR>
-nnoremap <leader>d :YcmCompleter GoToDeclaration<CR>
-nnoremap <leader>t :YcmCompleter GetType<CR>
-nnoremap <leader>p :YcmCompleter GetParent<CR>
