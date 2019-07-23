@@ -162,8 +162,8 @@ nnoremap <leader>p :YcmCompleter GetParent<CR>
 Plugin 'haya14busa/incsearch.vim'
 set hlsearch
 let g:incsearch#auto_nohlsearch = 1
-map / <Plug>(incsearch-forward)
-map ? <Plug>(incsearch-backward)
+map / <Plug>(incsearch-stay)
+map ? <Plug>(incsearch-stay)
 map g/ <Plug>(incsearch-stay)
 map n <Plug>(incsearch-nohl-n)
 map N <Plug>(incsearch-nohl-N)
@@ -171,6 +171,8 @@ map * <Plug>(incsearch-nohl-*)
 map # <Plug>(incsearch-nohl-#)
 map g* <Plug>(incsearch-nohl-g*)
 map g# <Plug>(incsearch-nohl-g#)
+
+nnoremap hh :set hlsearch!<CR>
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
