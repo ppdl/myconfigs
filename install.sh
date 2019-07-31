@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Install Vim, setting it as a default text editor
-sudo apt-get install -y vim
+sudo apt-get install -y vim-gnome
 sudo update-alternatives --set editor /usr/bin/vim.basic
 
 sudo apt-get install -y terminator

@@ -1,3 +1,30 @@
+" 간단 매뉴얼
+" 0. 플러그인설치
+"   Vim열고 :PluginInstall
+"
+" 1. 명령어 (별도의 말이 없으면 normal mode에서만 작동)
+" 	/<word> : word검색
+" 	n : 다음 단어 찾기
+" 	N : 이전 단어 찾기
+" 	:vi <filename> : 새로운 버퍼에 filename파일 열기
+" 	:%s/<old>/<new>/g : 모든 old단어 new로 바꾸기
+" 	:<linenumber> : linenumber줄번호로 이동
+" 	gg : 맨 위로 이동
+" 	G : 맨 아래로 이동
+" 	* : 현재 커서와 일치하는 단어 정방향으로 탐색
+" 	# : 현재 커서와 일치하는 단어 역방향으로 탐색
+"
+" 2. 커스텀 단축키 (별도의 말이 없으면 normal mode에서만 작동)
+" 	,ne : nerdtree (파일탐색기)
+" 	,a : 왼쪽버퍼로 이동
+" 	,s : 오른쪽버퍼로 이동
+" 	,w : 현재 버퍼 닫기
+" 	Alt+1 : 저장 (:w와 동일. normal mode, insert mode 두 모드에서 다 작동)
+" 	Alt+2 : 나가기 (:q와 동일. normal mode, insert mode 두 모드에서 다 작동)
+"	Ctrl + h : search highlighting 토글키. 검색 후 검색결과 하이라이팅 토글
+"   Ctrl + ] : ctags 찾기
+"   Ctrl + t : ctags 돌아오기
+
 colorscheme gruvbox
 :hi Search guibg=red
 
@@ -142,6 +169,8 @@ let g:NERDTreeeWinPos = "right"
 Plugin 'majutsushi/tagbar'
 nmap <F8> :TagbarToggle<CR>
 
+set tags=/home/choyj/tags
+
 " vim YouCompleteMe
 "Plugin 'Valloric/YouCompleteMe'
 " YouCompleteMe
@@ -172,7 +201,7 @@ map # <Plug>(incsearch-nohl-#)
 map g* <Plug>(incsearch-nohl-g*)
 map g# <Plug>(incsearch-nohl-g#)
 
-nnoremap hh :set hlsearch!<CR>
+nnoremap <c-h> :set hlsearch!<CR>
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -189,5 +218,5 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
-
-
+cs add ~/cscope.out
+set clipboard=unnamed
