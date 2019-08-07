@@ -29,6 +29,9 @@ cp terminator_config ~/.config/terminator/config
 # ctags
 sudo apt-get install -y ctags
 
+# xsel, vim clipboard
+sudo apt-get install -y xsel
+
 # Install all vim plugins
 vim -c 'PluginInstall' -c 'qa!'
 
