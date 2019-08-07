@@ -24,7 +24,7 @@
 "	Ctrl + h : search highlighting 토글키. 검색 후 검색결과 하이라이팅 토글
 "   Ctrl + ] : ctags 찾기
 "   Ctrl + t : ctags 돌아오기
-
+"	F5 : 모든 trailing whitespace 지우기
 colorscheme gruvbox
 :hi Search guibg=red
 
@@ -219,4 +219,7 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 
 cs add ~/cscope.out
-set clipboard=unnamed
+set clipboard=unnamedplus
+
+" erase all trailing whitespace
+:nnoremap <F5> :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar> :nohl <Bar> :unlet _s <CR>
